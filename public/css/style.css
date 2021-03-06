@@ -1,0 +1,36 @@
+body {
+    background-color: #1a1a1a;
+}
+
+h1 {
+    font-size: 80px;
+}
+.jumbotron{
+    background-color: rgba(0,0,0,.2);
+    color: white;
+}
+.intro {
+    font-size: 80px;
+    padding-top: 250px;
+    color: white;
+}
+
+.container {
+    color: white;
+    font-size: 30px;
+}
+
+.burgers,
+.devoured-burgers {
+    list-style: none;
+    text-align: left;
+}
+
+.off-set-70 {
+    margin-left: 70%;
+}
+.burger {
+    width: 8%;
+    margin: auto 0;
+    text-align: center;
+}

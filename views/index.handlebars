@@ -1,0 +1,49 @@
+<div class="jumbotron text-center">
+    <h1 class="text-center">Eat & Devour The Burger</h1>
+    <img class="burger" src="/images/burger_pic.jpeg"> 
+</div>
+<div class="container">
+    <div class="col-md-6 text-center">
+        <h2>Burgers Ready to Eat</h2>
+        <ul class="burgers">
+            {{#each burgers}} 
+                {{#unless this.devoured}}
+            <li>    
+                {{this.burger_name}}  
+                <form method="PUT" action="/eat/{{this.id}}?_method=PUT">
+                    <input type="hidden" name="devoured" value="true">
+                    <button type="submit" name="burgerId" class="btn btn-danger center-block off-set-70">Devour it!</button>
+                </form>
+                <hr>
+            </li>
+                {{/unless}} 
+            {{/each}}
+        </ul>
+    </div>
+    <div class="col-md-6 text-center">
+        <h2>Devoured Burgers</h2> 
+        {{#each burgers}} 
+            {{#if this.devoured}}
+        <ul class="devoured-burgers">
+            <li>
+                {{this.burger_name}}
+                <form method="PUT" action="/eat/{{this.id}}?_method=PUT">
+                    <input type="hidden" name="devoured" value="false">
+                    <button type="submit" name="burgerId" class="btn btn-primary center-block off-set-70">Eat Again </button>
+                </form>
+            </li>
+            <hr>
+        </ul>
+            {{/if}} 
+        {{/each}}
+    </div>
+    <div class="col-md-12 text-center">
+         <h2>Create Your Own!</h2>
+            <form method="POST" action="/add">
+                <div class="form-group">
+                    <textarea class="form-control" name="burger_name" placeholder="Name"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Create</button>    
+            </form>
+    </div>
+</div>
