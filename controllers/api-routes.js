@@ -6,6 +6,8 @@ var db = require('../models');
 
 router.post('/add', function(request, response) {
 
+    console.log(request);
+
     if (request.body.burger_name) {
         db.Burger.create({ burgerName: request.body.burger_name })
             .then(function() {
@@ -14,7 +16,8 @@ router.post('/add', function(request, response) {
     }
 });
 
-router.put('/eat/:id', function(request, response) {
+router.post('/eat/:id', function(request, response) {
+    console.log(request);
     db.Burger.update(
 
         {

@@ -8,7 +8,15 @@ router.get('/', function(request, response) {
 
     db.Burger.findAll({})
     .then(function(burgers){
-        response.render('index', {burgers});
+        let newBurgers = [];
+        for (let i = 0; i < burgers.length; i ++) {
+
+        const element = burgers[i];
+        newBurgers.push(element.dataValues);
+        
+        }
+        console.log(newBurgers);
+        response.render('index', {burgers: newBurgers});
     })
 });
 
